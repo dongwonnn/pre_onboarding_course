@@ -6,5 +6,5 @@ export interface IDetails {
 export interface ISearchData {
   id: number;
   category: string;
-  details?: IDetails;
+  details?: IDetails[];
 }
