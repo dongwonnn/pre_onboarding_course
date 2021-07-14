@@ -1,10 +1,12 @@
 import React from "react";
+import AppLayout from "../components/AppLayout";
+import GlobalNavBar from "../components/GlobalNavBar";
 
 const HomePage = () => {
   return (
-    <div>
-      <p>홈</p>
-    </div>
+    <AppLayout>
+      <GlobalNavBar />
+    </AppLayout>
   );
 };
 
