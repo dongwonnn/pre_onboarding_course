@@ -7,3 +7,5 @@ yarn add styled-components @types/styled-components styled-reset
 yarn add antd @types/antd @ant-design/icons
 yarn add react-cions @types/react-icons
 yarn add redux react-redux @types/react-redux redux-devtools-extension
+yarn add axios json-server
+yarn add redux-saga
