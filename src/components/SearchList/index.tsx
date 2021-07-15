@@ -3,59 +3,63 @@ import {
   SearchListWrapper,
   HasDetailListWrapper,
   HasNoDetailListWrapper,
+  SearchContainer,
 } from "./styles";
 import { RiArrowRightSLine } from "react-icons/ri";
 import { useSelector } from "react-redux";
 import { RootState } from "../../reducers";
 
 const SearchList = () => {
-  const { searchListData, searchListLoading, searchListError } = useSelector(
+  const { searchListData, searchListError } = useSelector(
     (state: RootState) => state.searchList
   );
 
-  if (searchListLoading) {
-    return <div>로딩중..</div>;
-  }
+  // 로딩 처리
+  // if (searchListLoading) {
+  //   return <p>로딩중..</p>;
+  // }
 
   if (searchListError) {
-    return <div>네트워크 오류</div>;
+    return <p>네트워크 오류</p>;
   }
 
   return (
-    <SearchListWrapper>
-      {searchListData !== null &&
-        searchListData.map(
-          (data) =>
-            data.details && (
-              <HasDetailListWrapper key={data.id}>
-                <h2>
-                  {data.category}
-                  <RiArrowRightSLine />
-                </h2>
-                {data.details.map((list) => (
-                  <h3 key={list.id}>
-                    {list.detailCategory}
-                    <RiArrowRightSLine />
-                  </h3>
-                ))}
-              </HasDetailListWrapper>
-            )
-        )}
-      <HasNoDetailListWrapper>
+    <SearchContainer>
+      <SearchListWrapper>
         {searchListData !== null &&
           searchListData.map(
             (data) =>
-              data.details === undefined && (
-                <div key={data.id}>
+              data.details && (
+                <HasDetailListWrapper key={data.id}>
                   <h2>
                     {data.category}
                     <RiArrowRightSLine />
                   </h2>
-                </div>
+                  {data.details.map((list) => (
+                    <h3 key={list.id}>
+                      {list.detailCategory}
+                      <RiArrowRightSLine />
+                    </h3>
+                  ))}
+                </HasDetailListWrapper>
               )
           )}
-      </HasNoDetailListWrapper>
-    </SearchListWrapper>
+        <HasNoDetailListWrapper>
+          {searchListData !== null &&
+            searchListData.map(
+              (data) =>
+                data.details === undefined && (
+                  <div key={data.id}>
+                    <h2>
+                      {data.category}
+                      <RiArrowRightSLine />
+                    </h2>
+                  </div>
+                )
+            )}
+        </HasNoDetailListWrapper>
+      </SearchListWrapper>
+    </SearchContainer>
   );
 };
 

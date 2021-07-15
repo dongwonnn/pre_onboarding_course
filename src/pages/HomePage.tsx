@@ -9,6 +9,8 @@ import { searchData } from "../lib/data";
 
 import { loadNavigationRequest } from "../reducers/navigation";
 import { loadSearchListRequest } from "../reducers/searchList";
+import DummyCarousel from "../components/DummyCarousel";
+import DummyCard from "../components/DummyCard";
 
 const HomePage = () => {
   const [isSearchMouseOver, setIsSearchMouseOver] = useState(false);
@@ -19,13 +21,17 @@ const HomePage = () => {
   }, [dispatch]);
 
   return (
-    <AppLayout>
+    <>
       <GlobalNavBar setIsSearchMouseOver={setIsSearchMouseOver} />
       {isSearchMouseOver && <SearchList />}
       {isSearchMouseOver && (
         <BodyBlackout setIsSearchMouseOver={setIsSearchMouseOver} />
       )}
-    </AppLayout>
+      <DummyCarousel />
+      <AppLayout>
+        <DummyCard />
+      </AppLayout>
+    </>
   );
 };
 

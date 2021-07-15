@@ -10,17 +10,13 @@ import styled from "styled-components";
  */
 
 const AppLayoutWrapper = styled.div`
-  width: 100%;
-  background-color: white;
-  border-bottom: 1px solid #ccc;
+  margin: 0 auto;
+  width: 70%;
+  z-index: -1000;
 `;
 
 const AppLayout: FC = ({ children }) => {
-  return (
-    <>
-      <AppLayoutWrapper>{children}</AppLayoutWrapper>
-    </>
-  );
+  return <AppLayoutWrapper>{children}</AppLayoutWrapper>;
 };
 
 export default AppLayout;

@@ -1,15 +1,19 @@
 import styled from "styled-components";
 
+export const SearchContainer = styled.div`
+  width: 100%;
+  position: fixed;
+  top: 50px;
+  padding-top: 38px;
+  background-color: white;
+`;
+
 export const SearchListWrapper = styled.div`
+  width: 70%;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-
-  margin: 0 auto;
-  background-color: white;
-
-  width: 70%;
-  padding-top: 38px;
 
   & h2 {
     font-size: 17px;

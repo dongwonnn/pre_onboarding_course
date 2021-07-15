@@ -8,6 +8,7 @@ import {
   StateWrapper,
   AvatarWrapper,
   DashBoradWrapper,
+  Container,
 } from "./styles";
 
 import { ReactComponent as Logo } from "../../assets/Logo.svg";
@@ -21,7 +22,7 @@ interface GlobalNavBarProps {
 }
 
 const GlobalNavBar: FC<GlobalNavBarProps> = ({ setIsSearchMouseOver }) => {
-  const { globalNav, navLoading, navError } = useSelector(
+  const { globalNav, navError } = useSelector(
     (state: RootState) => state.navigation
   );
 
@@ -36,47 +37,50 @@ const GlobalNavBar: FC<GlobalNavBarProps> = ({ setIsSearchMouseOver }) => {
     [setIsSearchMouseOver]
   );
 
-  if (navLoading) {
-    return <div>로딩 중..</div>;
-  }
+  // 로딩 처리
+  // if (navLoading) {
+  //   return <p>로딩 중..</p>;
+  // }
 
   if (navError) {
-    return <div>네트워크 오류</div>;
+    return <p>네트워크 오류</p>;
   }
 
   return (
-    <GlobalNabWrapper>
-      <LogoWrapper>
-        <p>홈</p>
-        <Logo />
-      </LogoWrapper>
-      <NavBarWrapper>
-        {globalNav !== null &&
-          globalNav.map((data) => (
-            <li key={data.id} id={String(data.id)} onMouseOver={onMouseOver}>
-              <p id={String(data.id)} onMouseOver={onMouseOver}>
-                {data.category}
-              </p>
+    <Container>
+      <GlobalNabWrapper>
+        <LogoWrapper>
+          <p>홈</p>
+          <Logo />
+        </LogoWrapper>
+        <NavBarWrapper>
+          {globalNav !== null &&
+            globalNav.map((data) => (
+              <li key={data.id} id={String(data.id)} onMouseOver={onMouseOver}>
+                <p id={String(data.id)} onMouseOver={onMouseOver}>
+                  {data.category}
+                </p>
+              </li>
+            ))}
+        </NavBarWrapper>
+        <aside>
+          <StateWrapper>
+            <li>
+              <AiOutlineSearch />
             </li>
-          ))}
-      </NavBarWrapper>
-      <aside>
-        <StateWrapper>
-          <li>
-            <AiOutlineSearch />
-          </li>
-          <li>
-            <VscBell />
-          </li>
-          <li>
-            <AvatarWrapper>동원</AvatarWrapper>
-          </li>
-          <li>
-            <DashBoradWrapper>기업 서비스</DashBoradWrapper>
-          </li>
-        </StateWrapper>
-      </aside>
-    </GlobalNabWrapper>
+            <li>
+              <VscBell />
+            </li>
+            <li>
+              <AvatarWrapper>동원</AvatarWrapper>
+            </li>
+            <li>
+              <DashBoradWrapper>기업 서비스</DashBoradWrapper>
+            </li>
+          </StateWrapper>
+        </aside>
+      </GlobalNabWrapper>
+    </Container>
   );
 };
 

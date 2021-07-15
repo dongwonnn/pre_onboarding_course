@@ -1,12 +1,18 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+  width: 100%;
+  background-color: white;
+  position: fixed;
+  top: 0;
+`;
+
 export const GlobalNabWrapper = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   margin: 0 auto;
-
   width: 70%;
   height: 50px;
 
