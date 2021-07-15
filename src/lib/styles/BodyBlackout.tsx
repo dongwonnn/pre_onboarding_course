@@ -9,7 +9,7 @@ export const BodyBlackoutStyled = styled.div`
   top: 50%;
   z-index: -1;
   transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.08);
+  background-color: rgba(0, 0, 0, 0.1);
 `;
 
 const BodyBlackout = () => {

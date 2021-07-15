@@ -5,7 +5,7 @@ import { navData } from "../lib/data";
 import { searchData } from "../lib/data";
 
 import { loadNavigationRequest } from "../reducers/navigation";
-import { loadSearchListRequest } from "../reducers/searchList";
+import { loadFieldRequest } from "../reducers/field";
 import DummyCarousel from "../components/DummyCarousel";
 import DummyCard from "../components/DummyCard";
 import GlobalLayout from "../components/GlobalLayout";
@@ -15,7 +15,7 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch(loadNavigationRequest(navData));
-    dispatch(loadSearchListRequest(searchData));
+    dispatch(loadFieldRequest(searchData));
   }, [dispatch]);
 
   return (

@@ -26,14 +26,14 @@ type NavigationAction =
   | ReturnType<typeof loadNavigationFailure>;
 
 export const initialStete = {
-  globalNav: null,
+  navData: null,
   navLoading: false,
   navError: null,
 };
 
 // 초기값 타입
 type NavigationState = {
-  globalNav: INavData[] | null;
+  navData: INavData[] | null;
   navLoading: boolean;
   navError: string | null;
 };
@@ -52,14 +52,14 @@ const navigation = (
     case LOAD_NAVIGATION_SUCCESS:
       return {
         ...state,
-        globalNav: action.payload,
+        navData: action.payload,
         navLoading: false,
         navError: null,
       };
     case LOAD_NAVIGATION_FAILURE:
       return {
         ...state,
-        globalNav: [],
+        navData: [],
         navLoading: false,
         navError: action.payload,
       };

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
 import styled from "styled-components";
-
-const DummyContainer = styled.div``;
+import { cardData } from "../lib/cardData";
+import { ICartData } from "../lib/types/ICartData";
 
 const DummyTitle = styled.div`
   display: flex;
@@ -70,87 +71,33 @@ const DummyImage = styled.div`
 `;
 
 const DummyCard = () => {
+  const [dummyData, setDummyData] = useState<ICartData[]>([]);
+
+  useEffect(() => {
+    setDummyData(cardData);
+  }, []);
+
   return (
-    <DummyContainer>
+    <>
       <DummyTitle>
         <h1>wanted 합격예측 포지션</h1>
         <p>더 보기</p>
       </DummyTitle>
       <DummyCardWrapper>
-        <div>
-          <DummyImage />
-          <DummyTextWrapper>
-            <h2>프론트엔드 개발자</h2>
-            <h3>에이팀벤처스</h3>
-            <h4>서울 한국</h4>
-            <p>채용 보상금 1,000,000원</p>
-          </DummyTextWrapper>
-        </div>
-        <div>
-          <DummyImage />
-          <DummyTextWrapper>
-            <h2>프론트엔드 개발자</h2>
-            <h3>에이팀벤처스</h3>
-            <h4>서울 한국</h4>
-            <p>채용 보상금 1,000,000원</p>
-          </DummyTextWrapper>
-        </div>
-        <div>
-          <DummyImage />
-          <DummyTextWrapper>
-            <h2>프론트엔드 개발자</h2>
-            <h3>에이팀벤처스</h3>
-            <h4>서울 한국</h4>
-            <p>채용 보상금 1,000,000원</p>
-          </DummyTextWrapper>
-        </div>
-        <div>
-          <DummyImage />
-          <DummyTextWrapper>
-            <h2>프론트엔드 개발자</h2>
-            <h3>에이팀벤처스</h3>
-            <h4>서울 한국</h4>
-            <p>채용 보상금 1,000,000원</p>
-          </DummyTextWrapper>
-        </div>
-        <div>
-          <DummyImage />
-          <DummyTextWrapper>
-            <h2>프론트엔드 개발자</h2>
-            <h3>에이팀벤처스</h3>
-            <h4>서울 한국</h4>
-            <p>채용 보상금 1,000,000원</p>
-          </DummyTextWrapper>
-        </div>
-        <div>
-          <DummyImage />
-          <DummyTextWrapper>
-            <h2>프론트엔드 개발자</h2>
-            <h3>에이팀벤처스</h3>
-            <h4>서울 한국</h4>
-            <p>채용 보상금 1,000,000원</p>
-          </DummyTextWrapper>
-        </div>
-        <div>
-          <DummyImage />
-          <DummyTextWrapper>
-            <h2>프론트엔드 개발자</h2>
-            <h3>에이팀벤처스</h3>
-            <h4>서울 한국</h4>
-            <p>채용 보상금 1,000,000원</p>
-          </DummyTextWrapper>
-        </div>
-        <div>
-          <DummyImage />
-          <DummyTextWrapper>
-            <h2>프론트엔드 개발자</h2>
-            <h3>에이팀벤처스</h3>
-            <h4>서울 한국</h4>
-            <p>채용 보상금 1,000,000원</p>
-          </DummyTextWrapper>
-        </div>
+        {dummyData !== undefined &&
+          dummyData.map((data) => (
+            <div key={data.id}>
+              <DummyImage />
+              <DummyTextWrapper>
+                <h2>{data.field}</h2>
+                <h3>{data.company}</h3>
+                <h4>{data.location}</h4>
+                <p>{data.option}</p>
+              </DummyTextWrapper>
+            </div>
+          ))}
       </DummyCardWrapper>
-    </DummyContainer>
+    </>
   );
 };
 

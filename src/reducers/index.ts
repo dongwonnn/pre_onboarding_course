@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 
 import navigation from "./navigation";
-import searchList from "./searchList";
+import field from "./field";
 
 const rootReducer = combineReducers({
   navigation,
-  searchList,
+  field,
 });
 
 export default rootReducer;

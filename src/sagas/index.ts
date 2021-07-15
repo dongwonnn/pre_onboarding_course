@@ -1,8 +1,8 @@
 import { all } from "redux-saga/effects";
 
 import { navigationSaga } from "./navigation";
-import { searchListSaga } from "./searchList";
+import { fieldSaga } from "./field";
 
 export function* rootSaga() {
-  yield all([navigationSaga(), searchListSaga()]);
+  yield all([navigationSaga(), fieldSaga()]);
 }

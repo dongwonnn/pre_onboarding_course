@@ -1,8 +1,7 @@
 import { INavData } from "../types/INavData";
-import { ISearchData } from "../types/ISearchData";
-import client from "./clinent";
+import { IFieldData } from "../types/IFieldData";
+import client from "./client";
 
 export const getNavData = (data: INavData[]) => client.get("/navData");
 
-export const getSearchListData = (data: ISearchData[]) =>
-  client.get("/searchData");
+export const getFieldData = (data: IFieldData[]) => client.get("/fieldData");

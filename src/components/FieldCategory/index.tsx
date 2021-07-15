@@ -15,8 +15,8 @@ interface SearchListProps {
 }
 
 const SearchList: FC<SearchListProps> = ({ isActive }) => {
-  const { searchListData, searchListError } = useSelector(
-    (state: RootState) => state.searchList
+  const { fieldData, fieldError } = useSelector(
+    (state: RootState) => state.field
   );
 
   // 로딩 처리
@@ -24,15 +24,15 @@ const SearchList: FC<SearchListProps> = ({ isActive }) => {
   //   return <p>로딩중..</p>;
   // }
 
-  if (searchListError) {
+  if (fieldError) {
     return <p>네트워크 오류</p>;
   }
 
   return (
     <SearchContainer isActive={isActive}>
       <SearchListWrapper>
-        {searchListData !== null &&
-          searchListData.map(
+        {fieldData !== null &&
+          fieldData.map(
             (data) =>
               data.details && (
                 <HasDetailListWrapper key={data.id}>
@@ -50,8 +50,8 @@ const SearchList: FC<SearchListProps> = ({ isActive }) => {
               )
           )}
         <HasNoDetailListWrapper>
-          {searchListData !== null &&
-            searchListData.map(
+          {fieldData !== null &&
+            fieldData.map(
               (data) =>
                 data.details === undefined && (
                   <div key={data.id}>

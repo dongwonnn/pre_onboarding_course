@@ -17,12 +17,12 @@ import { FC } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../reducers";
 
-interface GlobalNavBarProps {
+interface NavCategoryProps {
   setIsSearchMouseOver: (e: any) => void;
 }
 
-const GlobalNavBar: FC<GlobalNavBarProps> = ({ setIsSearchMouseOver }) => {
-  const { globalNav, navError } = useSelector(
+const NavCategory: FC<NavCategoryProps> = ({ setIsSearchMouseOver }) => {
+  const { navData, navError } = useSelector(
     (state: RootState) => state.navigation
   );
 
@@ -56,8 +56,8 @@ const GlobalNavBar: FC<GlobalNavBarProps> = ({ setIsSearchMouseOver }) => {
           <li>
             <p>홈</p>
           </li>
-          {globalNav !== null &&
-            globalNav.map((data) => (
+          {navData !== null &&
+            navData.map((data) => (
               <li key={data.id} id={String(data.id)} onMouseOver={onMouseOver}>
                 <p id={String(data.id)} onMouseOver={onMouseOver}>
                   {data.category}
@@ -89,4 +89,4 @@ const GlobalNavBar: FC<GlobalNavBarProps> = ({ setIsSearchMouseOver }) => {
   );
 };
 
-export default GlobalNavBar;
+export default NavCategory;

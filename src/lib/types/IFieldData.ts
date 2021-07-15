@@ -3,7 +3,7 @@ export interface IDetails {
   detailCategory: string;
 }
 
-export interface ISearchData {
+export interface IFieldData {
   id: number;
   category: string;
   details?: IDetails[];
