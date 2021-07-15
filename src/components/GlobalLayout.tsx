@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { useCallback } from "react";
-import { FC } from "react";
-import BodyBlackout from "../lib/styles/BodyBlackout";
+import React, { useState, useCallback, FC } from "react";
+
 import NavCategory from "./NavCategory";
 import FieldCategory from "./FieldCategory";
+
+import BodyBlackout from "../lib/styles/BodyBlackout";
 
 const GlobalLayout: FC = ({ children }) => {
   const [isSearchMouseOver, setIsSearchMouseOver] = useState(false);
@@ -14,11 +14,11 @@ const GlobalLayout: FC = ({ children }) => {
 
   return (
     <>
-      <section onMouseLeave={onMouseLeave}>
+      <div onMouseLeave={onMouseLeave}>
         <NavCategory setIsSearchMouseOver={setIsSearchMouseOver} />
         <FieldCategory isActive={isSearchMouseOver} />
         {isSearchMouseOver && <BodyBlackout />}
-      </section>
+      </div>
       {children}
     </>
   );

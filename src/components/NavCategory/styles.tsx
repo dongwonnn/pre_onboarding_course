@@ -1,20 +1,23 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const GlobalNavWrapper = styled.article`
   width: 100%;
-  background-color: white;
+
   position: fixed;
   top: 0;
+
+  background-color: white;
 `;
 
-export const GlobalNabWrapper = styled.nav`
+export const GlobalNav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  margin: 0 auto;
   width: 70%;
   height: 50px;
+
+  margin: 0 auto;
 
   @media screen and (max-width: 1400px) {
     width: 90%;
@@ -32,14 +35,6 @@ export const LogoWrapper = styled.div`
     height: 16.8px;
   }
 
-  & p {
-    display: none;
-  }
-
-  &:hover {
-    cursor: pointer;
-  }
-
   @media (max-width: 768px) {
     display: none;
   }
@@ -50,21 +45,21 @@ export const NavBarWrapper = styled.ul`
   justify-content: space-between;
   align-items: center;
 
-  & li:first-child {
-    display: none;
-  }
-
   & li {
-    padding: 14px;
-    color: #333;
     font-size: 14px;
     font-weight: bold;
+    padding: 14px;
+    color: #333;
     white-space: nowrap;
 
     &:hover {
       cursor: pointer;
       border-bottom: 2px solid #89b7f5;
     }
+  }
+
+  & li:first-child {
+    display: none;
   }
 
   @media (max-width: 830px) {
@@ -97,6 +92,7 @@ export const StateWrapper = styled.ul`
 
   & li {
     padding: 0 11px;
+
     svg {
       color: #1a1a1a;
       font-size: 1.125rem;
@@ -111,6 +107,7 @@ export const StateWrapper = styled.ul`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     &:before {
       content: "|";
       font-size: 10px;
@@ -147,25 +144,26 @@ export const AvatarWrapper = styled.div`
   align-items: center;
 
   background-color: #ef6c00;
+  font-size: 0.5rem;
   color: #e6e6e6;
 
   border: 1px solid #ccc;
   border-radius: 100%;
-  font-size: 0.5rem;
 `;
 
 export const DashBoradWrapper = styled.div`
-  min-width: 92px;
   display: flex;
   justify-content: center;
   align-items: center;
 
+  min-width: 92px;
+  height: 28px;
+
   font-size: 13px;
   color: #666;
-  padding: 0 9px;
-  height: 28px;
-  margin-left: 15px;
 
+  padding: 0 9px;
+  margin-left: 15px;
   border: 0.5px solid #ececec;
   border-radius: 30px;
 `;

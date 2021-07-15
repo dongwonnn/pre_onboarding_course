@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
-import styled from "styled-components";
+import React, { useState, useEffect } from "react";
 import { cardData } from "../lib/cardData";
 import { ICartData } from "../lib/types/ICartData";
+import styled from "styled-components";
 
 const DummyTitle = styled.div`
   display: flex;
@@ -21,7 +20,7 @@ const DummyTitle = styled.div`
   }
 `;
 
-const DummyCardWrapper = styled.div`
+const DummyCardWrapper = styled.article`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 20px;
@@ -86,7 +85,7 @@ const DummyCard = () => {
       <DummyCardWrapper>
         {dummyData !== undefined &&
           dummyData.map((data) => (
-            <div key={data.id}>
+            <section key={data.id}>
               <DummyImage />
               <DummyTextWrapper>
                 <h2>{data.field}</h2>
@@ -94,7 +93,7 @@ const DummyCard = () => {
                 <h4>{data.location}</h4>
                 <p>{data.option}</p>
               </DummyTextWrapper>
-            </div>
+            </section>
           ))}
       </DummyCardWrapper>
     </>

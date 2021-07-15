@@ -1,21 +1,18 @@
-import React from "react";
-import { AiOutlineSearch, AiOutlineMenu } from "react-icons/ai";
-import { VscBell } from "react-icons/vsc";
+import React, { useCallback, FC } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../reducers";
 import {
-  GlobalNabWrapper,
+  GlobalNav,
   LogoWrapper,
   NavBarWrapper,
   StateWrapper,
   AvatarWrapper,
   DashBoradWrapper,
-  Container,
+  GlobalNavWrapper,
 } from "./styles";
-
 import { ReactComponent as Logo } from "../../assets/Logo.svg";
-import { useCallback } from "react";
-import { FC } from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "../../reducers";
+import { VscBell } from "react-icons/vsc";
+import { AiOutlineSearch, AiOutlineMenu } from "react-icons/ai";
 
 interface NavCategoryProps {
   setIsSearchMouseOver: (e: any) => void;
@@ -47,8 +44,8 @@ const NavCategory: FC<NavCategoryProps> = ({ setIsSearchMouseOver }) => {
   }
 
   return (
-    <Container>
-      <GlobalNabWrapper>
+    <GlobalNavWrapper>
+      <GlobalNav>
         <LogoWrapper>
           <Logo />
         </LogoWrapper>
@@ -84,8 +81,8 @@ const NavCategory: FC<NavCategoryProps> = ({ setIsSearchMouseOver }) => {
             </li>
           </StateWrapper>
         </aside>
-      </GlobalNabWrapper>
-    </Container>
+      </GlobalNav>
+    </GlobalNavWrapper>
   );
 };
 

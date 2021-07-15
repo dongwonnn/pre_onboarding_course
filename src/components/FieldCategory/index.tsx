@@ -1,14 +1,15 @@
-import React from "react";
+import React, { FC } from "react";
+import { useSelector } from "react-redux";
+
+import { RootState } from "../../reducers";
+
 import {
-  SearchListWrapper,
+  FieldData,
   HasDetailListWrapper,
   HasNoDetailListWrapper,
-  SearchContainer,
+  FieldWrapper,
 } from "./styles";
 import { RiArrowRightSLine } from "react-icons/ri";
-import { useSelector } from "react-redux";
-import { RootState } from "../../reducers";
-import { FC } from "react";
 
 interface SearchListProps {
   isActive: boolean;
@@ -29,8 +30,8 @@ const SearchList: FC<SearchListProps> = ({ isActive }) => {
   }
 
   return (
-    <SearchContainer isActive={isActive}>
-      <SearchListWrapper>
+    <FieldWrapper isActive={isActive}>
+      <FieldData>
         {fieldData !== null &&
           fieldData.map(
             (data) =>
@@ -63,8 +64,8 @@ const SearchList: FC<SearchListProps> = ({ isActive }) => {
                 )
             )}
         </HasNoDetailListWrapper>
-      </SearchListWrapper>
-    </SearchContainer>
+      </FieldData>
+    </FieldWrapper>
   );
 };
 

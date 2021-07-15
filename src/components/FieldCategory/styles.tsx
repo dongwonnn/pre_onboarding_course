@@ -11,12 +11,11 @@ const slideDown = keyframes`
   }
 `;
 
-export const SearchContainer = styled.div<{ isActive: boolean }>`
-  width: 100%;
-  position: fixed;
-
+export const FieldWrapper = styled.article<{ isActive: boolean }>`
   display: ${(props) => (props.isActive ? "display" : "none")};
 
+  width: 100%;
+  position: fixed;
   top: 50px;
   padding-top: 38px;
   background-color: white;
@@ -31,17 +30,18 @@ export const SearchContainer = styled.div<{ isActive: boolean }>`
   }
 `;
 
-export const SearchListWrapper = styled.div`
-  width: 70%;
-  margin: 0 auto;
+export const FieldData = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 
+  width: 70%;
+  margin: 0 auto;
+
   & h2 {
     font-size: 17px;
-    padding-bottom: 15px;
     color: #333;
+    padding-bottom: 15px;
 
     white-space: nowrap;
     overflow: hidden;
@@ -54,8 +54,8 @@ export const SearchListWrapper = styled.div`
 
   & h3 {
     font-size: 13px;
-    padding: 5px 0;
     color: #999;
+    padding: 5px 0;
 
     white-space: nowrap;
     overflow: hidden;
@@ -76,14 +76,15 @@ export const SearchListWrapper = styled.div`
   }
 `;
 
-export const HasDetailListWrapper = styled.div`
-  min-width: 16%;
+export const HasDetailListWrapper = styled.section`
   position: relative;
+  min-width: 16%;
 
   & svg {
     position: absolute;
     top: 0;
     right: 0;
+
     font-size: 20px;
     color: #999;
   }
@@ -102,13 +103,14 @@ export const HasDetailListWrapper = styled.div`
       position: absolute;
       top: 0;
       right: 0;
+
       font-size: 20px;
       color: #999;
     }
   }
 `;
 
-export const HasNoDetailListWrapper = styled.div`
+export const HasNoDetailListWrapper = styled.section`
   min-width: 16%;
 
   & h2 {
@@ -118,6 +120,7 @@ export const HasNoDetailListWrapper = styled.div`
       position: absolute;
       top: 0;
       right: 0;
+
       font-size: 20px;
       color: #999;
     }

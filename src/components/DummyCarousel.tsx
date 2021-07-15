@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const DummyCarouselProps = styled.div`
+const DummyCarouselProps = styled.section`
   margin-top: 50px;
   width: 100%;
   height: 300px;
