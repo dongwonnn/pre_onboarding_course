@@ -1,7 +1,4 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
-import { navData } from "../../lib/data";
-import { INavData } from "../../lib/types/INavData";
+import React from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { VscBell } from "react-icons/vsc";
 import {
@@ -16,13 +13,16 @@ import {
 import { ReactComponent as Logo } from "../../assets/Logo.svg";
 import { useCallback } from "react";
 import { FC } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../reducers";
 
 interface GlobalNavBarProps {
   setIsSearchMouseOver: (e: any) => void;
 }
 
 const GlobalNavBar: FC<GlobalNavBarProps> = ({ setIsSearchMouseOver }) => {
-  const [globalNav, setGlobalNav] = useState<INavData[]>();
+  const { globalNav } = useSelector((state: RootState) => state.navigation);
+
   const onMouseOver = useCallback(
     (e) => {
       if (e.target.id === "1") {
@@ -34,10 +34,6 @@ const GlobalNavBar: FC<GlobalNavBarProps> = ({ setIsSearchMouseOver }) => {
     [setIsSearchMouseOver]
   );
 
-  useEffect(() => {
-    setGlobalNav(navData);
-  }, []);
-
   return (
     <GlobalNabWrapper>
       <LogoWrapper>
@@ -45,7 +41,7 @@ const GlobalNavBar: FC<GlobalNavBarProps> = ({ setIsSearchMouseOver }) => {
         <Logo />
       </LogoWrapper>
       <NavBarWrapper>
-        {globalNav !== undefined &&
+        {globalNav !== null &&
           globalNav.map((data) => (
             <li key={data.id} id={String(data.id)} onMouseOver={onMouseOver}>
               <p id={String(data.id)} onMouseOver={onMouseOver}>

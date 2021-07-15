@@ -1,24 +1,21 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
-import { searchData } from "../../lib/data";
-import { ISearchData } from "../../lib/types/ISearchData";
+import React from "react";
 import {
   SearchListWrapper,
   HasDetailListWrapper,
   HasNoDetailListWrapper,
 } from "./styles";
 import { RiArrowRightSLine } from "react-icons/ri";
+import { useSelector } from "react-redux";
+import { RootState } from "../../reducers";
 
 const SearchList = () => {
-  const [searchListData, setSearchListData] = useState<ISearchData[]>();
-
-  useEffect(() => {
-    setSearchListData(searchData);
-  }, []);
+  const { searchListData } = useSelector(
+    (state: RootState) => state.searchList
+  );
 
   return (
     <SearchListWrapper>
-      {searchListData !== undefined &&
+      {searchListData !== null &&
         searchListData.map(
           (data) =>
             data.details && (
@@ -37,7 +34,7 @@ const SearchList = () => {
             )
         )}
       <HasNoDetailListWrapper>
-        {searchListData !== undefined &&
+        {searchListData !== null &&
           searchListData.map(
             (data) =>
               data.details === undefined && (

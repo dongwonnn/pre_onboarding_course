@@ -6,3 +6,4 @@ yarn create react-app pre_onboarding_course --template typescript
 yarn add styled-components @types/styled-components styled-reset
 yarn add antd @types/antd @ant-design/icons
 yarn add react-cions @types/react-icons
+yarn add redux react-redux @types/react-redux redux-devtools-extension
