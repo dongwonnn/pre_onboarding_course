@@ -35,15 +35,21 @@ export const LogoWrapper = styled.div`
     height: 16.8px;
   }
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     display: none;
   }
 `;
 
-export const NavBarWrapper = styled.ul`
+export const NavBarWrapper = styled.ul<{ isActive: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  & li:first-child {
+    display: none;
+    border-bottom: ${(props) =>
+      props.isActive ? "2px solid #89b7f5" : "none"};
+  }
 
   & li {
     font-size: 14px;
@@ -62,13 +68,18 @@ export const NavBarWrapper = styled.ul`
     display: none;
   }
 
-  @media (max-width: 830px) {
+  & li:nth-child(2) {
+    border-bottom: ${(props) =>
+      props.isActive ? "2px solid #89b7f5" : "none"};
+  }
+
+  @media screen and (max-width: 830px) {
     p {
       font-size: 12.5px;
     }
   }
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     p {
       font-size: 14px;
     }
@@ -120,7 +131,7 @@ export const StateWrapper = styled.ul`
     cursor: pointer;
   }
 
-  @media (max-width: 1200px) {
+  @media screen and (max-width: 1200px) {
     & li:nth-child(3) {
       display: block;
     }

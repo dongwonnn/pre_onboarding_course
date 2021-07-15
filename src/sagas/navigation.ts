@@ -11,10 +11,7 @@ import { AxiosResponse } from "axios";
 // saga
 function* loadNavigationSaga(action: ReturnType<typeof loadNavigationRequest>) {
   try {
-    const response: AxiosResponse = yield call(
-      authApi.getNavData,
-      action.payload
-    );
+    const response: AxiosResponse = yield call(authApi.getNavData);
 
     yield put({
       type: LOAD_NAVIGATION_SUCCESS,

@@ -4,9 +4,8 @@ export const LOAD_FIELD_REQUEST = "LOAD_FIELD_REQUEST" as const;
 export const LOAD_FIELD_SUCCESS = "LOAD_FIELD_SUCCESS" as const;
 export const LOAD_FIELD_FAILURE = "LOAD_FIELD_FAILURE" as const;
 
-export const loadFieldRequest = (payload: IFieldData[]) => ({
+export const loadFieldRequest = () => ({
   type: LOAD_FIELD_REQUEST,
-  payload,
 });
 
 export const loadFieldSuccess = (payload: IFieldData[]) => ({

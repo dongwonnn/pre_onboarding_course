@@ -4,9 +4,8 @@ export const LOAD_NAVIGATION_REQUEST = "LOAD_NAVIGATION_REQUEST" as const;
 export const LOAD_NAVIGATION_SUCCESS = "LOAD_NAVIGATION_SUCCESS" as const;
 export const LOAD_NAVIGATION_FAILURE = "LOAD_NAVIGATION_FAILURE" as const;
 
-export const loadNavigationRequest = (payload: INavData[]) => ({
+export const loadNavigationRequest = () => ({
   type: LOAD_NAVIGATION_REQUEST,
-  payload,
 });
 
 export const loadNavigationSuccess = (payload: INavData[]) => ({

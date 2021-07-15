@@ -8,6 +8,10 @@ const DummyCarouselProps = styled.section`
   background-color: skyblue;
 
   margin-bottom: 80px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const DummyCarousel = () => {

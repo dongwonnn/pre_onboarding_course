@@ -15,10 +15,16 @@ import { VscBell } from "react-icons/vsc";
 import { AiOutlineSearch, AiOutlineMenu } from "react-icons/ai";
 
 interface NavCategoryProps {
+  isFocused: boolean;
+  setIsFocused: (e: any) => void;
   setIsSearchMouseOver: (e: any) => void;
 }
 
-const NavCategory: FC<NavCategoryProps> = ({ setIsSearchMouseOver }) => {
+const NavCategory: FC<NavCategoryProps> = ({
+  isFocused,
+  setIsFocused,
+  setIsSearchMouseOver,
+}) => {
   const { navData, navError } = useSelector(
     (state: RootState) => state.navigation
   );
@@ -27,11 +33,13 @@ const NavCategory: FC<NavCategoryProps> = ({ setIsSearchMouseOver }) => {
     (e) => {
       if (e.target.id === "1") {
         setIsSearchMouseOver(true);
+        setIsFocused(true);
       } else {
         setIsSearchMouseOver(false);
+        setIsFocused(false);
       }
     },
-    [setIsSearchMouseOver]
+    [setIsSearchMouseOver, setIsFocused]
   );
 
   // 로딩 처리
@@ -49,7 +57,7 @@ const NavCategory: FC<NavCategoryProps> = ({ setIsSearchMouseOver }) => {
         <LogoWrapper>
           <Logo />
         </LogoWrapper>
-        <NavBarWrapper>
+        <NavBarWrapper isActive={isFocused}>
           <li>
             <p>홈</p>
           </li>

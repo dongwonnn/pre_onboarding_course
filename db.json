@@ -1,5 +1,5 @@
 {
-  "navData": [
+  "nav": [
     {
       "id": 1,
       "category": "탐색"
@@ -29,7 +29,7 @@
       "category": "AI 합격예측"
     }
   ],
-  "fieldData": [
+  "field": [
     {
       "id": 1,
       "category": "영업",

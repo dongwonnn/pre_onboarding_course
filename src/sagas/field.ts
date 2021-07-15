@@ -11,10 +11,7 @@ import {
 // saga 생성
 function* loadFieldSaga(action: ReturnType<typeof loadFieldRequest>) {
   try {
-    const response: AxiosResponse = yield call(
-      authApi.getFieldData,
-      action.payload
-    );
+    const response: AxiosResponse = yield call(authApi.getFieldData);
 
     yield put({
       type: LOAD_FIELD_SUCCESS,

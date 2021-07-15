@@ -9,24 +9,23 @@ import GlobalLayout from "../components/GlobalLayout";
 import { loadNavigationRequest } from "../reducers/navigation";
 import { loadFieldRequest } from "../reducers/field";
 
-import { navData } from "../lib/data";
-import { searchData } from "../lib/data";
-
 const HomePage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(loadNavigationRequest(navData));
-    dispatch(loadFieldRequest(searchData));
+    dispatch(loadNavigationRequest());
+    dispatch(loadFieldRequest());
   }, [dispatch]);
 
   return (
-    <GlobalLayout>
-      <DummyCarousel />
-      <AppLayout>
-        <DummyCard />
-      </AppLayout>
-    </GlobalLayout>
+    <>
+      <GlobalLayout>
+        <DummyCarousel />
+        <AppLayout>
+          <DummyCard />
+        </AppLayout>
+      </GlobalLayout>
+    </>
   );
 };
 

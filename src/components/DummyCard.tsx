@@ -13,10 +13,18 @@ const DummyTitle = styled.div`
   & h1 {
     font-size: 1.2rem;
     font-weight: bold;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   & p {
     color: #acacac;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 `;
 
@@ -28,8 +36,15 @@ const DummyCardWrapper = styled.article`
   justify-content: space-between;
   align-content: center;
 
+  // 실제 사이트 break point
   @media screen and (max-width: 990px) {
     grid-template-columns: repeat(2, 1fr);
+  }
+`;
+
+const DummyCardList = styled.section`
+  &:hover {
+    cursor: pointer;
   }
 `;
 
@@ -85,7 +100,7 @@ const DummyCard = () => {
       <DummyCardWrapper>
         {dummyData !== undefined &&
           dummyData.map((data) => (
-            <section key={data.id}>
+            <DummyCardList key={data.id}>
               <DummyImage />
               <DummyTextWrapper>
                 <h2>{data.field}</h2>
@@ -93,7 +108,7 @@ const DummyCard = () => {
                 <h4>{data.location}</h4>
                 <p>{data.option}</p>
               </DummyTextWrapper>
-            </section>
+            </DummyCardList>
           ))}
       </DummyCardWrapper>
     </>
