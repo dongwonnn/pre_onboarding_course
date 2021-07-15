@@ -22,13 +22,14 @@ export const GlobalNabWrapper = styled.nav`
 
   @media screen and (max-width: 768px) {
     width: 100%;
-    justify-content: flex-start;
+    justify-content: space-between;
   }
 `;
 
 export const LogoWrapper = styled.div`
   & svg {
     width: 74.38px;
+    height: 16.8px;
   }
 
   & p {
@@ -40,20 +41,7 @@ export const LogoWrapper = styled.div`
   }
 
   @media (max-width: 768px) {
-    & svg {
-      display: none;
-    }
-
-    & p {
-      display: block;
-      padding: 14px 13px 14px 20px;
-      font-size: 14px;
-      font-weight: bold;
-    }
-
-    &:hover {
-      border-bottom: 2px solid #89b7f5;
-    }
+    display: none;
   }
 `;
 
@@ -61,6 +49,10 @@ export const NavBarWrapper = styled.ul`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  & li:first-child {
+    display: none;
+  }
 
   & li {
     padding: 14px;
@@ -75,6 +67,12 @@ export const NavBarWrapper = styled.ul`
     }
   }
 
+  @media (max-width: 830px) {
+    p {
+      font-size: 12.5px;
+    }
+  }
+
   @media (max-width: 768px) {
     p {
       font-size: 14px;
@@ -85,7 +83,8 @@ export const NavBarWrapper = styled.ul`
     }
 
     & li:nth-child(1),
-    li:nth-child(2) {
+    li:nth-child(2),
+    li:nth-child(3) {
       display: block;
     }
   }
@@ -104,6 +103,10 @@ export const StateWrapper = styled.ul`
     }
   }
 
+  & li:nth-child(3) {
+    display: none;
+  }
+
   & li:last-child {
     display: flex;
     justify-content: space-between;
@@ -120,8 +123,18 @@ export const StateWrapper = styled.ul`
     cursor: pointer;
   }
 
-  @media (max-width: 1024px) {
-    display: none;
+  @media (max-width: 1200px) {
+    & li:nth-child(3) {
+      display: block;
+    }
+
+    & li:nth-child(4) {
+      display: none;
+    }
+
+    & li:nth-child(5) {
+      display: none;
+    }
   }
 `;
 

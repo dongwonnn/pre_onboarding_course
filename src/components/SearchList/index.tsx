@@ -8,8 +8,13 @@ import {
 import { RiArrowRightSLine } from "react-icons/ri";
 import { useSelector } from "react-redux";
 import { RootState } from "../../reducers";
+import { FC } from "react";
 
-const SearchList = () => {
+interface SearchListProps {
+  isActive: boolean;
+}
+
+const SearchList: FC<SearchListProps> = ({ isActive }) => {
   const { searchListData, searchListError } = useSelector(
     (state: RootState) => state.searchList
   );
@@ -24,7 +29,7 @@ const SearchList = () => {
   }
 
   return (
-    <SearchContainer>
+    <SearchContainer isActive={isActive}>
       <SearchListWrapper>
         {searchListData !== null &&
           searchListData.map(

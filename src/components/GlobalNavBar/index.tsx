@@ -1,5 +1,5 @@
 import React from "react";
-import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineSearch, AiOutlineMenu } from "react-icons/ai";
 import { VscBell } from "react-icons/vsc";
 import {
   GlobalNabWrapper,
@@ -50,10 +50,12 @@ const GlobalNavBar: FC<GlobalNavBarProps> = ({ setIsSearchMouseOver }) => {
     <Container>
       <GlobalNabWrapper>
         <LogoWrapper>
-          <p>홈</p>
           <Logo />
         </LogoWrapper>
         <NavBarWrapper>
+          <li>
+            <p>홈</p>
+          </li>
           {globalNav !== null &&
             globalNav.map((data) => (
               <li key={data.id} id={String(data.id)} onMouseOver={onMouseOver}>
@@ -70,6 +72,9 @@ const GlobalNavBar: FC<GlobalNavBarProps> = ({ setIsSearchMouseOver }) => {
             </li>
             <li>
               <VscBell />
+            </li>
+            <li>
+              <AiOutlineMenu />
             </li>
             <li>
               <AvatarWrapper>동원</AvatarWrapper>

@@ -27,6 +27,10 @@ const DummyCardWrapper = styled.div`
 
   justify-content: space-between;
   align-content: center;
+
+  @media screen and (max-width: 990px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 const DummyTextWrapper = styled.div`
@@ -59,7 +63,7 @@ const DummyTextWrapper = styled.div`
 `;
 
 const DummyImage = styled.div`
-  background-color: #ccc;
+  background-color: #467500;
   border-radius: 10px;
   width: 100%;
   padding-bottom: 80%;

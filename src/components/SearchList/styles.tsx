@@ -1,11 +1,34 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
-export const SearchContainer = styled.div`
+const slideDown = keyframes`
+  from {
+    height: 0vh;
+    opacity: 0;
+  }
+  to {
+    height: 324px;
+    opacity: 1;
+  }
+`;
+
+export const SearchContainer = styled.div<{ isActive: boolean }>`
   width: 100%;
   position: fixed;
+
+  display: ${(props) => (props.isActive ? "display" : "none")};
+
   top: 50px;
   padding-top: 38px;
   background-color: white;
+
+  animation-duration: 0.25s;
+  animation-timing-function: ease-out;
+  animation-name: ${slideDown};
+  animation-fill-mode: forwards;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const SearchListWrapper = styled.div`
