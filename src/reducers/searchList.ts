@@ -1,11 +1,8 @@
-import { AxiosResponse } from "axios";
-import { call, put, takeLatest } from "redux-saga/effects";
 import { ISearchData } from "../lib/types/ISearchData";
-import * as authApi from "../lib/api/data";
 
-const LOAD_SEARCH_LIST_REQUEST = "LOAD_SEARCH_LIST_REQUEST";
-const LOAD_SEARCH_LIST_SUCCESS = "LOAD_SEARCH_LIST_SUCCESS";
-const LOAD_SEARCH_LIST_FAILURE = "LOAD_SEARCH_LIST_FAILURE";
+export const LOAD_SEARCH_LIST_REQUEST = "LOAD_SEARCH_LIST_REQUEST" as const;
+export const LOAD_SEARCH_LIST_SUCCESS = "LOAD_SEARCH_LIST_SUCCESS" as const;
+export const LOAD_SEARCH_LIST_FAILURE = "LOAD_SEARCH_LIST_FAILURE" as const;
 
 export const loadSearchListRequest = (payload: ISearchData[]) => ({
   type: LOAD_SEARCH_LIST_REQUEST,
@@ -17,7 +14,7 @@ export const loadSearchListSuccess = (payload: ISearchData[]) => ({
   payload,
 });
 
-export const loadSearchListFailure = (payload: ISearchData[]) => ({
+export const loadSearchListFailure = (payload: string) => ({
   type: LOAD_SEARCH_LIST_FAILURE,
   payload,
 });
@@ -28,38 +25,17 @@ type SearchListAction =
   | ReturnType<typeof loadSearchListSuccess>
   | ReturnType<typeof loadSearchListFailure>;
 
-// saga 생성
-function* loadSearchListSaga(action: ReturnType<typeof loadSearchListRequest>) {
-  try {
-    const response: AxiosResponse = yield call(
-      authApi.getSearchListData,
-      action.payload
-    );
-
-    yield put({
-      type: LOAD_SEARCH_LIST_SUCCESS,
-      payload: response.data,
-    });
-  } catch (e) {
-    yield put({
-      type: LOAD_SEARCH_LIST_FAILURE,
-      payload: e,
-    });
-  }
-}
-
-// SAGA 통합
-export function* searchListSaga() {
-  yield takeLatest(LOAD_SEARCH_LIST_REQUEST, loadSearchListSaga);
-}
-
 export const initialStete = {
   searchListData: [],
+  searchListLoading: false,
+  searchListError: null,
 };
 
 // 초기값 타입
 type SearchListState = {
   searchListData: ISearchData[] | null;
+  searchListLoading: boolean;
+  searchListError: string | null;
 };
 
 const SearchList = (
@@ -70,16 +46,22 @@ const SearchList = (
     case LOAD_SEARCH_LIST_REQUEST:
       return {
         ...state,
+        searchListLoading: true,
+        searchListError: null,
       };
     case LOAD_SEARCH_LIST_SUCCESS:
       return {
         ...state,
         searchListData: action.payload,
+        searchListLoading: false,
+        searchListError: null,
       };
     case LOAD_SEARCH_LIST_FAILURE:
       return {
         ...state,
         searchListData: [],
+        searchListLoading: false,
+        searchListError: action.payload,
       };
     default:
       return state;

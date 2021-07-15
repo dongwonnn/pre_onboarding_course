@@ -21,7 +21,9 @@ interface GlobalNavBarProps {
 }
 
 const GlobalNavBar: FC<GlobalNavBarProps> = ({ setIsSearchMouseOver }) => {
-  const { globalNav } = useSelector((state: RootState) => state.navigation);
+  const { globalNav, navLoading, navError } = useSelector(
+    (state: RootState) => state.navigation
+  );
 
   const onMouseOver = useCallback(
     (e) => {
@@ -33,6 +35,14 @@ const GlobalNavBar: FC<GlobalNavBarProps> = ({ setIsSearchMouseOver }) => {
     },
     [setIsSearchMouseOver]
   );
+
+  if (navLoading) {
+    return <div>로딩 중..</div>;
+  }
+
+  if (navError) {
+    return <div>네트워크 오류</div>;
+  }
 
   return (
     <GlobalNabWrapper>

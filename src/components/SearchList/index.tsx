@@ -9,9 +9,17 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../reducers";
 
 const SearchList = () => {
-  const { searchListData } = useSelector(
+  const { searchListData, searchListLoading, searchListError } = useSelector(
     (state: RootState) => state.searchList
   );
+
+  if (searchListLoading) {
+    return <div>로딩중..</div>;
+  }
+
+  if (searchListError) {
+    return <div>네트워크 오류</div>;
+  }
 
   return (
     <SearchListWrapper>

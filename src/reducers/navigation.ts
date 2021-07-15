@@ -1,11 +1,8 @@
 import { INavData } from "../lib/types/INavData";
-import { call, put, takeLatest } from "redux-saga/effects";
-import { AxiosResponse } from "axios";
-import * as authApi from "../lib/api/data";
 
-const LOAD_NAVIGATION_REQUEST = "LOAD_NAVIGATION_REQUEST";
-const LOAD_NAVIGATION_SUCCESS = "LOAD_NAVIGATION_SUCCESS";
-const LOAD_NAVIGATION_FAILURE = "LOAD_NAVIGATION_FAILURE";
+export const LOAD_NAVIGATION_REQUEST = "LOAD_NAVIGATION_REQUEST" as const;
+export const LOAD_NAVIGATION_SUCCESS = "LOAD_NAVIGATION_SUCCESS" as const;
+export const LOAD_NAVIGATION_FAILURE = "LOAD_NAVIGATION_FAILURE" as const;
 
 export const loadNavigationRequest = (payload: INavData[]) => ({
   type: LOAD_NAVIGATION_REQUEST,
@@ -17,7 +14,7 @@ export const loadNavigationSuccess = (payload: INavData[]) => ({
   payload,
 });
 
-export const loadNavigationFailure = (payload: INavData[]) => ({
+export const loadNavigationFailure = (payload: string) => ({
   type: LOAD_NAVIGATION_FAILURE,
   payload,
 });
@@ -28,38 +25,17 @@ type NavigationAction =
   | ReturnType<typeof loadNavigationSuccess>
   | ReturnType<typeof loadNavigationFailure>;
 
-// saga 생성
-function* loadNavigationSaga(action: ReturnType<typeof loadNavigationRequest>) {
-  try {
-    const response: AxiosResponse = yield call(
-      authApi.getNavData,
-      action.payload
-    );
-
-    yield put({
-      type: LOAD_NAVIGATION_SUCCESS,
-      payload: response.data,
-    });
-  } catch (e) {
-    yield put({
-      type: LOAD_NAVIGATION_FAILURE,
-      payload: e,
-    });
-  }
-}
-
-// SAGA 통합
-export function* navigationSaga() {
-  yield takeLatest(LOAD_NAVIGATION_REQUEST, loadNavigationSaga);
-}
-
 export const initialStete = {
   globalNav: null,
+  navLoading: false,
+  navError: null,
 };
 
 // 초기값 타입
 type NavigationState = {
   globalNav: INavData[] | null;
+  navLoading: boolean;
+  navError: string | null;
 };
 
 const navigation = (
@@ -70,16 +46,22 @@ const navigation = (
     case LOAD_NAVIGATION_REQUEST:
       return {
         ...state,
+        navLoading: true,
+        navError: null,
       };
     case LOAD_NAVIGATION_SUCCESS:
       return {
         ...state,
         globalNav: action.payload,
+        navLoading: false,
+        navError: null,
       };
     case LOAD_NAVIGATION_FAILURE:
       return {
         ...state,
         globalNav: [],
+        navLoading: false,
+        navError: action.payload,
       };
     default:
       return state;
