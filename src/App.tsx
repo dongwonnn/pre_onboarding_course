@@ -1,6 +1,8 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import HomePage from "./pages/HomePage";
+import loadable from "@loadable/component";
+
+const HomePage = loadable(() => import("./pages/HomePage"));
 
 const App = () => {
   return (
