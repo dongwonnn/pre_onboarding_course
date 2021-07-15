@@ -2,24 +2,25 @@ import React from "react";
 import { FC } from "react";
 import styled from "styled-components";
 
-// break point
-// 768px 부터 사라짐.
+/* 
+  xs <  ~ 768      : 사라짐
+  sm < 768 ~ 992   : 
+  md < 992 ~ 1200  : 
+  lg < 1200 ~      
+ */
 
 const AppLayoutWrapper = styled.div`
-  margin: 0 auto;
-  width: 70%;
-
-  @media (max-width: 1400px) {
-    width: 90%;
-  }
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid #ccc;
 `;
 
 const AppLayout: FC = ({ children }) => {
-  return <AppLayoutWrapper>{children}</AppLayoutWrapper>;
+  return (
+    <>
+      <AppLayoutWrapper>{children}</AppLayoutWrapper>
+    </>
+  );
 };
 
 export default AppLayout;

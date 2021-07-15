@@ -12,7 +12,6 @@ const GlobalStyles = createGlobalStyle`
     }
     body{
         font-family: 'Noto Sans KR', sans-serif;
-        min-width: 700px;
 
         &::-webkit-scrollbar {
             display: none; /* Chrome, Safari, Opera*/

@@ -5,10 +5,17 @@ export const GlobalNabWrapper = styled.nav`
   align-items: center;
   justify-content: space-between;
 
-  width: 100%;
+  margin: 0 auto;
+
+  width: 70%;
   height: 50px;
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 1400px) {
+    width: 90%;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
     justify-content: flex-start;
   }
 `;

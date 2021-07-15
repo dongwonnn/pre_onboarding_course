@@ -1,23 +1,24 @@
 import styled from "styled-components";
 
 export const SearchListWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-
-  column-gap: 10px;
+  display: flex;
   justify-content: space-between;
-  align-content: flex-start;
+  align-items: flex-start;
 
-  padding-top: 40px;
+  margin: 0 auto;
+  background-color: white;
 
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  width: 70%;
+  padding-top: 38px;
 
   & h2 {
     font-size: 17px;
     padding-bottom: 15px;
     color: #333;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     &:hover {
       cursor: pointer;
@@ -29,17 +30,27 @@ export const SearchListWrapper = styled.div`
     padding: 5px 0;
     color: #999;
 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
     &:hover {
       cursor: pointer;
     }
   }
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 1400px) {
+    width: 90%;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
     display: none;
   }
 `;
 
 export const HasDetailListWrapper = styled.div`
+  min-width: 16%;
   position: relative;
 
   & svg {
@@ -71,6 +82,8 @@ export const HasDetailListWrapper = styled.div`
 `;
 
 export const HasNoDetailListWrapper = styled.div`
+  min-width: 16%;
+
   & h2 {
     position: relative;
 

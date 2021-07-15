@@ -14,9 +14,25 @@ import {
 } from "./styles";
 
 import { ReactComponent as Logo } from "../../assets/Logo.svg";
+import { useCallback } from "react";
+import { FC } from "react";
 
-const GlobalNavBar = () => {
+interface GlobalNavBarProps {
+  setIsSearchMouseOver: (e: any) => void;
+}
+
+const GlobalNavBar: FC<GlobalNavBarProps> = ({ setIsSearchMouseOver }) => {
   const [globalNav, setGlobalNav] = useState<INavData[]>();
+  const onMouseOver = useCallback(
+    (e) => {
+      if (e.target.id === "1") {
+        setIsSearchMouseOver(true);
+      } else {
+        setIsSearchMouseOver(false);
+      }
+    },
+    [setIsSearchMouseOver]
+  );
 
   useEffect(() => {
     setGlobalNav(navData);
@@ -31,8 +47,10 @@ const GlobalNavBar = () => {
       <NavBarWrapper>
         {globalNav !== undefined &&
           globalNav.map((data) => (
-            <li key={data.id}>
-              <p>{data.category}</p>
+            <li key={data.id} id={String(data.id)} onMouseOver={onMouseOver}>
+              <p id={String(data.id)} onMouseOver={onMouseOver}>
+                {data.category}
+              </p>
             </li>
           ))}
       </NavBarWrapper>
