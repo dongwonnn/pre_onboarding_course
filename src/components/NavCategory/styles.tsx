@@ -73,6 +73,12 @@ export const NavBarWrapper = styled.ul<{ isActive: boolean }>`
       props.isActive ? "2px solid #89b7f5" : "none"};
   }
 
+  @media screen and (max-width: 12000px) {
+    p {
+      font-size: 13px;
+    }
+  }
+
   @media screen and (max-width: 830px) {
     p {
       font-size: 12.5px;
@@ -131,7 +137,8 @@ export const StateWrapper = styled.ul`
     cursor: pointer;
   }
 
-  @media screen and (max-width: 1200px) {
+  // 실제 사이트 break point
+  @media screen and (max-width: 990px) {
     & li:nth-child(3) {
       display: block;
     }

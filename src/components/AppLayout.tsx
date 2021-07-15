@@ -14,7 +14,7 @@ const AppLayoutWrapper = styled.div`
   margin: 0 auto;
   width: 70%;
 
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1400px) {
     width: 90%;
   }
 

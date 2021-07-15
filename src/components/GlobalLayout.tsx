@@ -24,7 +24,7 @@ const GlobalLayout: FC = ({ children }) => {
         />
         {/* transtion 효과를 주기 위해 숨김 처리 */}
         <FieldCategory isActive={isSearchMouseOver} />
-        {isSearchMouseOver && <BodyBlackout />}
+        <BodyBlackout isActive={isSearchMouseOver} />
       </div>
       {children}
     </>

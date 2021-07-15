@@ -20,7 +20,8 @@ const DummyTitle = styled.div`
   }
 
   & p {
-    color: #acacac;
+    font-size: 1.2rem;
+    color: #acb8c0;
 
     &:hover {
       cursor: pointer;

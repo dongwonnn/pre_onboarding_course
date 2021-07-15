@@ -1,5 +1,6 @@
 import React, { useCallback, FC } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { RootState } from "../../reducers";
 import {
   GlobalNav,
@@ -55,7 +56,9 @@ const NavCategory: FC<NavCategoryProps> = ({
     <GlobalNavWrapper>
       <GlobalNav>
         <LogoWrapper>
-          <Logo />
+          <Link to="/">
+            <Logo />
+          </Link>
         </LogoWrapper>
         <NavBarWrapper isActive={isFocused}>
           <li>
@@ -64,9 +67,11 @@ const NavCategory: FC<NavCategoryProps> = ({
           {navData !== null &&
             navData.map((data) => (
               <li key={data.id} id={String(data.id)} onMouseOver={onMouseOver}>
-                <p id={String(data.id)} onMouseOver={onMouseOver}>
-                  {data.category}
-                </p>
+                <Link to="/#">
+                  <p id={String(data.id)} onMouseOver={onMouseOver}>
+                    {data.category}
+                  </p>
+                </Link>
               </li>
             ))}
         </NavBarWrapper>
