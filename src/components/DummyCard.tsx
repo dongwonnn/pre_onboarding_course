@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { cardData } from "../lib/cardData";
 import { ICartData } from "../lib/types/ICartData";
 import styled from "styled-components";
+import { ReactComponent as Logo } from "../assets/Logo.svg";
 
 const DummyTitle = styled.div`
   display: flex;
@@ -26,6 +27,11 @@ const DummyTitle = styled.div`
     &:hover {
       cursor: pointer;
     }
+  }
+
+  & svg {
+    width: 74.38px;
+    height: 16.8px;
   }
 `;
 
@@ -91,11 +97,12 @@ const DummyCard = () => {
   useEffect(() => {
     setDummyData(cardData);
   }, []);
-
   return (
     <>
       <DummyTitle>
-        <h1>wanted 합격예측 포지션</h1>
+        <h1>
+          <Logo /> 합격예측 포지션
+        </h1>
         <p>더 보기</p>
       </DummyTitle>
       <DummyCardWrapper>

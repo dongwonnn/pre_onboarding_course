@@ -10,7 +10,7 @@ const rootElement = document.getElementById("root");
 
 if (rootElement !== null && rootElement.hasChildNodes()) {
   hydrate(
-    <BrowserRouter>
+    <BrowserRouter basename="pre_onboarding_course">
       <Provider store={store}>
         <App />
         <GlobalStyles />
@@ -20,7 +20,7 @@ if (rootElement !== null && rootElement.hasChildNodes()) {
   );
 } else {
   render(
-    <BrowserRouter>
+    <BrowserRouter basename="pre_onboarding_course">
       <Provider store={store}>
         <App />
         <GlobalStyles />

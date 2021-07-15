@@ -7,6 +7,7 @@ export const GlobalNavWrapper = styled.article`
   top: 0;
 
   background-color: white;
+  border-bottom: 1px solid #ccc;
 `;
 
 export const GlobalNav = styled.nav`
@@ -73,7 +74,7 @@ export const NavBarWrapper = styled.ul<{ isActive: boolean }>`
       props.isActive ? "2px solid #89b7f5" : "none"};
   }
 
-  @media screen and (max-width: 12000px) {
+  @media screen and (max-width: 1000px) {
     p {
       font-size: 13px;
     }

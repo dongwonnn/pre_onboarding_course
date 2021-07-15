@@ -7,16 +7,34 @@ import DummyCarousel from "../components/DummyCarousel";
 import DummyCard from "../components/DummyCard";
 import GlobalLayout from "../components/GlobalLayout";
 
-import { loadNavigationRequest } from "../reducers/navigation";
-import { loadFieldRequest } from "../reducers/field";
+// 임시 data를 이용한 Redux
+import { loadNavigationSuccess } from "../reducers/navigation";
+import { loadFieldSuccess } from "../reducers/field";
+import { navData } from "../lib/data";
+import { fieldData } from "../lib/data";
+
+/* ==================================================================== *
+ // json server을 이용한 Saga Dispatch
+  import { loadNavigationRequest } from "../reducers/navigation";
+  import { loadFieldRequest } from "../reducers/field";
+ * ==================================================================== */
 
 const HomePage = () => {
   const dispatch = useDispatch();
 
+  // 임시 data를 이용한 Redux
   useEffect(() => {
-    dispatch(loadNavigationRequest());
-    dispatch(loadFieldRequest());
+    dispatch(loadNavigationSuccess(navData));
+    dispatch(loadFieldSuccess(fieldData));
   }, [dispatch]);
+
+  /* =========================================== *
+    // json server을 이용한 Redux Saga Dispatch
+    useEffect(() => {
+      dispatch(loadNavigationRequest());
+      dispatch(loadFieldRequest());
+    }, [dispatch]);
+  * ============================================ */
 
   return (
     <>
