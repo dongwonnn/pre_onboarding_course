@@ -48,7 +48,7 @@
 
 #### 2. styled-components
 
-- scss는 무겁다고 판단해 CSS-in-JS 인 **styled-compoents**를 이용했습니다.
+- scss는 무겁다고 판단해 CSS-in-JS 인 **styled-components**를 이용했습니다.
 
 #### 3. Redux, Redux-Saga 전역 상태 라이브러리
 
@@ -72,6 +72,7 @@
   **카테고리별로 id를 지정**해 탐색 카테고리 `mouse over` 시 변수를 업데이트했습니다. 탐색이 아닌 다른 카테고리를 `mouse over` 시에 변수를 false로 설정했습니다.
 
   ```javascript
+  // 글로벌 네비게이션 탐색, 그 외 부분
   const onMouseOver = useCallback(
     (e) => {
       if (e.target.id === "1") {
@@ -84,25 +85,26 @@
   );
   ```
 
-- `onMouseLeave` 이벤트 리스너를 사용, **글로벌 네비게이션 외의 영역**에 마우스가 이동했을 때 드랍다운이 꺼지도록 구현했습니다.
+- dim 화면 중, `e.stopPropagation()`를 이용해 어두운 화면에만 `mouse over` 시, 드랍다운이 꺼지도록 구현했습니다.
 
   ```javascript
-  const onGlobalNavOut = useCallback(() => {
-    setIsSearchMouseOver(false);
-    setIsFocused(false);
-  }, []);
+  const BodyBlackout = () => {
+    const onMouseOver = useCallback(
+      (e) => {
+        e.stopPropagation();
+        setIsSearchMouseOver(false);
+        setIsFocused(false);
+      },
+      [setIsSearchMouseOver, setIsFocused]
+    );
 
-    return (
-      <>
-        <div onMouseLeave={onGlobalNavOut}>
-        ...
-      </>
-    )
+    return <BodyBlackoutStyled isActive={isActive} onMouseOver={onMouseOver} />;
+  };
   ```
 
 #### 3. 전역 상태 관리
 
-- json-server를 이용해 임시 네트워크 비동기 통신을 구현했습니다. HomePage에 처음 접속했을 때 useEeffect를 통해 불러오도록 설정했습니다.
+- `json-server`를 이용해 임시 네트워크 비동기 통신을 구현했습니다. HomePage에 처음 접속했을 때 `useEeffect`를 통해 불러오도록 설정했습니다.
 
   ```javascript
   // HomePage.tsx
@@ -153,7 +155,7 @@
   ```
 
 - **animation 지정**.
-  boolean형 변수를 이용해 dispaly를 조작했습니다. 이를 구현하기 위해 **keyframes을** 사용해 animation을 처리했습니다.
+  boolean형 변수를 이용해 display를 조작했습니다. 이를 구현하기 위해 **keyframes을** 사용해 animation을 처리했습니다.
 
   ```javascript
   const slideDown = keyframes`
@@ -209,7 +211,7 @@
 
 #### 5. SEO 최적화
 
-- react-helmet 이용한 메타 내용 변경
+- `react-helmet` 이용한 메타 내용 변경
 
   ```javascript
   // src/pages/HomePage.tsx
@@ -224,7 +226,7 @@
   };
   ```
 
-- react-snap, hydrate 이용한 pre-render
+- `react-snap`, `hydrate` 이용한 `pre-render`
 
   ```javascript
   // src/index.tsx
