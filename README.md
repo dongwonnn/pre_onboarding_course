@@ -1,6 +1,6 @@
 # 프리 온보드 코스 과제
 
-#### 🔗 배포 사이트 : [Link](https://dongwonnn.github.io/pre_onboarding_course/)
+### 🔗 배포 사이트 : [Link](https://dongwonnn.github.io/pre_onboarding_course/)
 
 ### 📜 json-server 이용한 테스트 방법
 
@@ -269,10 +269,10 @@
 
 ### 📄 설치목록
 
-yarn create react-app pre_onboarding_course --template typescript
-yarn add styled-components @types/styled-components styled-reset
-yarn add antd @types/antd @ant-design/icons
-yarn add react-cions @types/react-icons
-yarn add redux react-redux @types/react-redux redux-devtools-extension redux-saga
-yarn add axios json-server
-yarn add react-helmet react-snap @loadable/component @types/loadable\_\_component
+yarn create react-app pre_onboarding_course --template typescript </br>
+yarn add styled-components @types/styled-components styled-reset </br>
+yarn add antd @types/antd @ant-design/icons </br>
+yarn add react-cions @types/react-icons </br>
+yarn add redux react-redux @types/react-redux redux-devtools-extension redux-saga </br>
+yarn add axios json-server </br>
+yarn add react-helmet react-snap @loadable/component @types/loadable\_\_component </br>
