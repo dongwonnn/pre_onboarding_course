@@ -36,10 +36,6 @@
   }, [dispatch]);
   ```
 
-### ✔ 반응형 디자인 확인 방법
-
-- F12 -> Ctrl + Shift + M -> Response 모드 -> width 조작
-
 ### 📚 사용 라이브러리
 
 #### 1. React with Typescript

@@ -1,4 +1,5 @@
 import React from "react";
+import { useCallback } from "react";
 import { FC } from "react";
 import styled from "styled-components";
 
@@ -9,9 +10,10 @@ export const BodyBlackoutStyled = styled.div<{ isActive: boolean }>`
   height: 100%;
 
   position: fixed;
+  z-index: -1;
+
   left: 50%;
   top: 50%;
-  z-index: -1;
 
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.1);
@@ -23,10 +25,25 @@ export const BodyBlackoutStyled = styled.div<{ isActive: boolean }>`
 
 interface BodyBlackoutProps {
   isActive: boolean;
+  setIsSearchMouseOver: (e: any) => void;
+  setIsFocused: (e: any) => void;
 }
 
-const BodyBlackout: FC<BodyBlackoutProps> = ({ isActive }) => {
-  return <BodyBlackoutStyled isActive={isActive} />;
+const BodyBlackout: FC<BodyBlackoutProps> = ({
+  isActive,
+  setIsSearchMouseOver,
+  setIsFocused,
+}) => {
+  const onMouseOver = useCallback(
+    (e) => {
+      e.stopPropagation();
+      setIsSearchMouseOver(false);
+      setIsFocused(false);
+    },
+    [setIsSearchMouseOver, setIsFocused]
+  );
+
+  return <BodyBlackoutStyled isActive={isActive} onMouseOver={onMouseOver} />;
 };
 
 export default BodyBlackout;

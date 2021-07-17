@@ -6,7 +6,7 @@ const slideDown = keyframes`
     opacity: 0;
   }
   to {
-    height: 324px;
+    height: 340px;
     opacity: 1;
   }
 `;
@@ -77,16 +77,16 @@ export const FieldData = styled.div`
 `;
 
 export const HasDetailListWrapper = styled.section`
-  position: relative;
   min-width: 16%;
 
-  & svg {
-    position: absolute;
-    top: 0;
-    right: 0;
+  & h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    font-size: 20px;
-    color: #999;
+    & svg {
+      color: #999;
+    }
   }
 
   & h3 {
@@ -96,13 +96,12 @@ export const HasDetailListWrapper = styled.section`
   }
 
   & h3:last-child {
-    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     & svg {
       display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
 
       font-size: 20px;
       color: #999;
@@ -114,14 +113,11 @@ export const HasNoDetailListWrapper = styled.section`
   min-width: 16%;
 
   & h2 {
-    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     & svg {
-      position: absolute;
-      top: 0;
-      right: 0;
-
-      font-size: 20px;
       color: #999;
     }
   }

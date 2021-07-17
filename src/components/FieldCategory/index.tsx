@@ -39,12 +39,16 @@ const SearchList: FC<SearchListProps> = ({ isActive }) => {
                 <HasDetailListWrapper key={data.id}>
                   <h2>
                     {data.category}
-                    <RiArrowRightSLine />
+                    <div>
+                      <RiArrowRightSLine />
+                    </div>
                   </h2>
                   {data.details.map((list) => (
                     <h3 key={list.id}>
                       {list.detailCategory}
-                      <RiArrowRightSLine />
+                      <div>
+                        <RiArrowRightSLine />
+                      </div>
                     </h3>
                   ))}
                 </HasDetailListWrapper>
@@ -58,7 +62,9 @@ const SearchList: FC<SearchListProps> = ({ isActive }) => {
                   <div key={data.id}>
                     <h2>
                       {data.category}
-                      <RiArrowRightSLine />
+                      <div>
+                        <RiArrowRightSLine />
+                      </div>
                     </h2>
                   </div>
                 )

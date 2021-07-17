@@ -12,7 +12,7 @@ const DummyTitle = styled.div`
   padding-bottom: 20px;
 
   & h1 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: bold;
 
     &:hover {
@@ -21,7 +21,7 @@ const DummyTitle = styled.div`
   }
 
   & p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: #acb8c0;
 
     &:hover {
@@ -59,26 +59,26 @@ const DummyTextWrapper = styled.div`
   padding: 10px;
 
   & h2 {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: bold;
     color: #1b1b1b;
     padding-bottom: 5px;
   }
   & h3 {
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: bold;
     color: #1b1b1b;
     padding-bottom: 5px;
   }
 
   & h4 {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: #acacac;
     padding-bottom: 5px;
   }
 
   & p:last-child {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     color: #acacac;
     padding-bottom: 10px;
   }
