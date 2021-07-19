@@ -255,7 +255,7 @@
   }
   ```
 
-- @loadable/component 이용한 코드 스플리팅
+- `@loadable/component` 이용한 코드 스플리팅
 
   ```javascript
   // src/app.tsx

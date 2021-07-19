@@ -95,6 +95,10 @@ export const NavBarWrapper = styled.ul<{ isActive: boolean }>`
       display: none;
     }
 
+    & li:nth-child(1) {
+      border-bottom: none;
+    }
+
     & li:nth-child(1),
     li:nth-child(2),
     li:nth-child(3) {

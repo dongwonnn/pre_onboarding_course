@@ -62,7 +62,9 @@ const NavCategory: FC<NavCategoryProps> = ({
         </LogoWrapper>
         <NavBarWrapper isActive={isFocused}>
           <li>
-            <p>홈</p>
+            <Link to="/">
+              <p>홈</p>
+            </Link>
           </li>
           {navData !== null &&
             navData.map((data) => (
